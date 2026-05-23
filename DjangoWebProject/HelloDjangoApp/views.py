@@ -1,18 +1,36 @@
 from django.shortcuts import render
+from django.template import loader
 from django.http import HttpResponse
-from datetime import datetime
 
-# Create your views here.
 def index(request):
-    now = datetime.now()
+    return render(request, 'HelloDjangoApp/Index.html') 
 
-    return render(
-        request,
-        "HelloDjangoApp/index.html",  # Relative path from the 'templates' folder to the template file
-        # "index.html", # Use this code for VS 2017 15.7 and earlier
-        {
-            'title' : "Hello Django",
-            'message' : "Hello Django!",
-            'content' : " on " + now.strftime("%A, %d %B, %Y at %X")
+def generate_outline(request):
+    outline = None
+    uploaded_file_name = None
+    
+    if request.method == 'POST':
+        outline = {
+            'unit_name': request.POST.get('unitName'),
+            'unit_code': request.POST.get('unitCode'),
+            'unit_description': request.POST.get('unitDescription'),
+            'unit_url': request.POST.get('unitUrl'),
         }
-    )
+        
+        if 'document' in request.FILES:
+            uploaded_file = request.FILES['document']
+            uploaded_file_name = uploaded_file.name
+
+    return render(request, 'HelloDjangoApp/Index.html', {
+        'outline': outline, 
+        'file_name': uploaded_file_name
+    })
+def assessments(request):
+    assessment_list = [
+        {'title': 'Midterm Exam', 'date': '2026-06-15', 'weight': '30%'},
+        {'title': 'Group Project', 'date': '2026-07-01', 'weight': '40%'},
+        {'title': 'Final Quiz', 'date': '2026-07-10', 'weight': '30%'},
+    ]
+     
+    return render(request, 'Assessments.html', {'assessments': assessment_list})
+

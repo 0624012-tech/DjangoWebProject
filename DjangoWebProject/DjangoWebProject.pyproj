@@ -43,7 +43,8 @@
     <Compile Include="DjangoWebProject\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HelloDjangoApp\templates\HelloDjangoApp\index.html" />
+    <Content Include="HelloDjangoApp\templates\Assessments.html" />
+    <Content Include="HelloDjangoApp\templates\HelloDjangoApp\Index.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>

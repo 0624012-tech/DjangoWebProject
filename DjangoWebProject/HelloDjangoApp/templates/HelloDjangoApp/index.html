@@ -1,8 +1,100 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>{{ title }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Simple Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #35424a;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+            nav a {
+                margin: 0 15px;
+                color: #35424a;
+                text-decoration: none;
+            }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #35424a;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .unit-outline {
+            margin-top: 20px;
+            background: #e2e2e2;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <strong>{{ message }}</strong>{{ content }}
+    <header>
+        <h1>BSSS!</h1>
+    </header>
+    <nav>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'assessments' %}">Assessments</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <h2>Quote of the Day</h2>
+        <p>"The only way to do great work is to love what you do." — Steve Jobs.</p>
+
+        <div class="unit-outline">
+            <h2>Unit Outline Generator</h2>
+            <form method="POST" action="{% url 'generate_outline' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="unitName">Unit Name:</label><br>
+                <input type="text" name="unitName" required><br>
+                <label for="unitCode">Unit Code:</label><br>
+                <input type="text" name="unitCode" required><br>
+                <label for="unitDescription">Description:</label><br>
+                <textarea name="unitDescription" required></textarea><br>
+                <label for="unitUrl">Reference URL:</label><br>
+                <input type="url" name="unitUrl" placeholder="https://example.com"><br>
+                <label for="document">Upload Document:</label><br>
+                <input type="file" name="document"><br><br>
+
+                <button type="submit">Generate Outline</button>
+            </form>
+
+            {% if outline %}
+            <h3>Unit Outline</h3>
+            <p><strong>Unit Name:</strong> {{ outline.unit_name }}</p>
+            <p><strong>Unit Code:</strong> {{ outline.unit_code }}</p>
+            <p><strong>Description:</strong> {{ outline.unit_description }}</p>
+            <p><strong>Reference URL:</strong> <a href="{{ outline.unit_url }}" target="_blank">{{ outline.unit_url }}</a></p>
+            <p><strong>File Uploaded:</strong> {{ file_name }}</p>
+            {% endif %}
+        </div>
+        <footer>
+            <p>&copy; 2026 This is the BSSS!</p>
+        </footer>
 </body>
 </html>
+
+
