@@ -27,9 +27,9 @@ def generate_outline(request):
     })
 def assessments(request):
     assessment_list = [
-        {'title': 'Midterm Exam', 'date': '2026-06-15', 'weight': '30%'},
-        {'title': 'Group Project', 'date': '2026-07-01', 'weight': '40%'},
-        {'title': 'Final Quiz', 'date': '2026-07-10', 'weight': '30%'},
+        {'title': 'First IT project', 'date': '2026-06-15', 'weight': '30%'},
+        {'title': 'The Prototype', 'date': '2026-07-01', 'weight': '30%'},
+        {'title': 'Final project', 'date': '2026-07-10', 'weight': '40%'},
     ]
      
     return render(request, 'Assessments.html', {'assessments': assessment_list})
