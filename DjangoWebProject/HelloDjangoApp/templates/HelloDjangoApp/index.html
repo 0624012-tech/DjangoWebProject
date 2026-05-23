@@ -59,6 +59,7 @@
         <a href="{% url 'index' %}">Home</a>
         <a href="{% url 'assessments' %}">Assessments</a>
         <a href="#contact">Contact</a>
+        <a href="{% url 'about' %}">About This Website</a>
     </nav>
     <div class="container">
         <h2>Quote of the Day</h2>
@@ -90,6 +91,13 @@
             <p><strong>Reference URL:</strong> <a href="{{ outline.unit_url }}" target="_blank">{{ outline.unit_url }}</a></p>
             <p><strong>File Uploaded:</strong> {{ file_name }}</p>
             {% endif %}
+        </div>
+        <div id="contact-info">
+            <h2>Contact Information</h2>
+            <p>Email: support@example.com</p>
+            <p>Phone: (123) 456-7890</p>
+            <p>Address: 123 Learning Lane, Education City, ED 12345</p>
+            <button onclick="document.getElementById('contact-info').style.display='none'">Close</button>
         </div>
         <footer>
             <p>&copy; 2026 This is the BSSS!</p>

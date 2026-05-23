@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
 
+def about(request):
+    return render(request, 'HelloDjangoApp/About.html')
+
 def index(request):
     return render(request, 'HelloDjangoApp/Index.html') 
 
@@ -33,4 +36,5 @@ def assessments(request):
     ]
      
     return render(request, 'Assessments.html', {'assessments': assessment_list})
+
 
