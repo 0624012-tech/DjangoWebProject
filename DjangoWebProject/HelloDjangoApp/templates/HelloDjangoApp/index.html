@@ -26,8 +26,13 @@
             nav a {
                 margin: 0 15px;
                 color: #35424a;
-                text-decoration: none;
+                text-decoration: none; /* Remove underline */
+                padding: 10px; /* Optional padding for better click area */
             }
+
+                nav a:hover {
+                    text-decoration: underline; /* Underline on hover for better visibility */
+                }
 
         footer {
             text-align: center;
@@ -56,10 +61,10 @@
         <h1>BSSS!</h1>
     </header>
     <nav>
-        <a href="{% url 'index' %}">Home</a>
-        <a href="{% url 'assessments' %}">Assessments</a>
-        <a href="#contact">Contact</a>
-        <a href="{% url 'about' %}">About This Website</a>
+        <a href="{% url 'index' %}">Home</a>  
+        <a href="{% url 'assessments' %}">Assessments</a>  
+        <a href="{% url 'contact' %}">Contact</a>  
+        <a href="{% url 'about' %}">About This Website</a>  
     </nav>
     <div class="container">
         <h2>Quote of the Day</h2>
@@ -92,17 +97,10 @@
             <p><strong>File Uploaded:</strong> {{ file_name }}</p>
             {% endif %}
         </div>
-        <div id="contact-info">
-            <h2>Contact Information</h2>
-            <p>Email: support@example.com</p>
-            <p>Phone: (123) 456-7890</p>
-            <p>Address: 123 Learning Lane, Education City, ED 12345</p>
-            <button onclick="document.getElementById('contact-info').style.display='none'">Close</button>
-        </div>
+
         <footer>
             <p>&copy; 2026 This is the BSSS!</p>
         </footer>
+    </div>
 </body>
 </html>
-
-

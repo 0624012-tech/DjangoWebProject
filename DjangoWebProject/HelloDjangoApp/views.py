@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
 
+
+def contact(request):
+    return render(request, 'HelloDjangoApp/Contact.html')
+
 def about(request):
     return render(request, 'HelloDjangoApp/About.html')
 
@@ -37,4 +41,5 @@ def assessments(request):
      
     return render(request, 'Assessments.html', {'assessments': assessment_list})
 
-
+def contact(request):
+    return render(request, 'HelloDjangoApp/Contact.html')

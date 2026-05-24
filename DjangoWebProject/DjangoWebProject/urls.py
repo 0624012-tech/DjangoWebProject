@@ -6,5 +6,6 @@ urlpatterns = [
     re_path(r'^home$', HelloDjangoApp.views.index, name='home'),
     re_path(r'^about$', HelloDjangoApp.views.about, name='about'),
     re_path(r'^generate_outline$', HelloDjangoApp.views.generate_outline, name='generate_outline'),
-    re_path(r'^assessments$', HelloDjangoApp.views.assessments, name='assessments'), 
+    re_path(r'^assessments$', HelloDjangoApp.views.assessments, name='assessments'),
+   re_path(r'^contact$', HelloDjangoApp.views.contact, name='contact'),
 ]
